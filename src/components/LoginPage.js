@@ -7,7 +7,7 @@ const LoginPage = ({ history }) => {
 
 	const onSubmit = useCallback(e => {
 		login(email, pass)
-			.then(() => history.push("/private"));
+			.then(() => history.push("/"));
 		e.preventDefault();
 	}, [email, pass, history]);
 

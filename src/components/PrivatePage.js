@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { logout } from 'actions/oauth';
 import { get } from 'actions/xhr';
 import useAuth from 'auth/useAuth';
+import AppNav from 'components/AppNav';
 import logo from "logo.svg";
 
 const PrivatePage = () => {
@@ -27,12 +28,12 @@ const PrivatePage = () => {
 	}
 	return (
 		<header className="App-header">
+			<h1>Private Page</h1>
 			<img src={logo} className="App-logo" alt="logo" />
-			<p>
-				Edit <code>src/App.js</code> and save to reload.
-			</p>
-			<Link to="/" className="App-link">Home</Link>
-			<button type="button" onClick={() => logout()}>Logout</button>
+			<AppNav
+				isAuthenticated={isAuthenticated}
+				logout={logout}
+			/>
 		</header>
 	);
 }

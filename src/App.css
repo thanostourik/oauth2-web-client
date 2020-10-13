@@ -13,6 +13,15 @@
   }
 }
 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,12 +36,19 @@
 .App-link {
   color: #61dafb;
 }
+.App-link:not(:last-child) {
+  margin-right: 50px;
+}
+.App-logout {
+  background: transparent;
+  border: none;
+  font-size: calc(10px + 2vmin);
+  text-decoration: underline;
+  cursor: pointer;
+  outline: 0;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-nav {
+  display: flex;
+  justify-content: space-between;
 }
