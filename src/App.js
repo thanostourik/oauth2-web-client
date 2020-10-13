@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import AuthContext from 'auth/AuthContext';
+import useInitializeAuth from 'auth/useInitializeAuth';
+import LoginPage from 'components/LoginPage';
+import PrivatePage from 'components/PrivatePage';
+import HomePage from 'components/HomePage';
+import "App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const jwtBag = useInitializeAuth();
+
+	return (
+		<div className="App">
+			<AuthContext.Provider value={jwtBag}>
+				<Switch>
+					<Route path="/login" component={LoginPage} />
+					<Route path="/private" component={PrivatePage} />
+					<Route exact path="/" component={HomePage} />
+				</Switch>
+			</AuthContext.Provider>
+		</div>
+	);
 }
 
 export default App;
